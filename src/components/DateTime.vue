@@ -1,11 +1,10 @@
 <template>
 	<md-card>
 		<div id="time-display">
-			<p>{{ date }}</p>
+			<p class="date">{{ date }}</p>
 			<template v-if="!time">
 				<md-spinner md-indeterminate></md-spinner>
 			</template>
-			
 			<p
 				v-else
 				class="time"
@@ -105,12 +104,13 @@ export default {
 </script>
 
 <style lang="css" scoped>
-	#time-display {
-		margin-bottom: 10px;
+	.date {
+
+		margin-top: 30px;
 	}
 	.time {
-		font-size: 3em;
-		margin-top: 0px;
+		font-size: 4em;
+		height: 40px;
 		display: inline-block;
 	}
 </style>

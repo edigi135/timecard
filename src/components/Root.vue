@@ -10,7 +10,7 @@ import DateTime from './DateTime.vue';
 import Buttons from './Buttons.vue';
 
 export default {
-  name: 'Hello',
+  name: 'Root',
   components: {
     DateTime,
     Buttons
