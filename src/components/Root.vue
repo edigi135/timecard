@@ -1,7 +1,9 @@
 <template>
-  <div id="main">
-    <DateTime></DateTime>
-    <Buttons></Buttons>
+  <div id="main" class="pure-g">
+    <div class="pure-u-1">
+      <DateTime></DateTime>
+      <Buttons></Buttons>
+    </div>
   </div>
 </template>
 
@@ -20,7 +22,6 @@ export default {
 
 <style scoped>
 #main {
-  width: 50%;
   margin: auto;
 }
 

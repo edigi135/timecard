@@ -75,6 +75,9 @@ export default {
 </script>
 
 <style lang="css" scoped>
+	#time-display {
+		width: 100%;
+	}
 	.date {
 		margin-top: 30px;
 	}
