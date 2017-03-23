@@ -23,11 +23,27 @@ export function getTime() {
 	return `${ hour }:${ min }:${ sec }${ ampm }`;
 }
 
-/********  DEBUG  
+export const week = [
+	'Sunday',
+	'Monday',
+	'Tuesday',
+	'Wednesday',
+	'Thursday',
+	'Friday',
+	'Saturday'
+];
 
-console.log(getDate());
-
-let date = getDate();
-console.log(formatDate(date));
-
-*******/
+export const months = [
+	'January',
+	'February',
+	'March',
+	'April',
+	'May',
+	'June',
+	'July',
+	'August',
+	'September',
+	'October',
+	'November',
+	'December'
+];

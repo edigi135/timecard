@@ -1,10 +1,10 @@
 <template>
-	<md-card id="buttons">
-		<button @click="punchIn">Punch In</button>
-		<button @click="breakOut">Break (Out)</button>
-		<button @click="breakIn">Break (In)</button>
-		<button @click="punchOut">Punch Out</button>
-	</md-card>
+	<div id="buttons">
+		<md-button @click.native.once="punchIn">Punch In</md-button>
+		<md-button @click.native="breakOut">Break (Out)</md-button>
+		<md-button @click.native="breakIn">Break (In)</md-button>
+		<md-button @click.native.once="punchOut">Punch Out</md-button>
+	</div>
 </template>
 
 <script>
@@ -31,7 +31,7 @@ export default {
 <style lang="css" scoped>
 
 	button {
-		display: block;
+		cursor: pointer;
 		width: 150px;
 		height: 40px;
 	}

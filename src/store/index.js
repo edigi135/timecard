@@ -11,33 +11,37 @@ const store = new Vuex.Store({
   state: {
     punches: {}
   },
-  actions: {
-
-  },
   mutations: {
-    punchIn(state, time, notes) {
-      state.punches[key] = {
-        punchIn: time,
-        notes
-      };
+    punchIn(state, time) {
+      if (!state.punches[key]) {
+        state.punches[key] = { punchIn: time };
+      }
     },
-    breakOut(state, time, notes) {
-      if (state.punches[key]){
-        state.punches[key] = {...state.punches[key], breakOut: time, notes};
+    breakOut(state, time) {
+      if (state.punches[key]){  
+        if (!state.punches[key].breakOut) {
+          state.punches[key] = { ...state.punches[key], breakOut: time };
+        } else {
+          alert('You\'ve already punched out for lunch');
+        } 
       } else {
         alert('You must punch in first!');
       }
     },
-    breakIn(state, time, notes) {
+    breakIn(state, time) {
       if (state.punches[key]){
-        state.punches[key] = {...state.punches[key], breakIn: time, notes};
+        if (!state.punches[key].breakIn) {
+          state.punches[key] = { ...state.punches[key], breakIn: time };
+        } else {
+          alert('You\'ve already punched back in from lunch');
+        } 
       } else {
         alert('You must punch in first!');
       }
     },
-    punchOut(state, time, notes) {
+    punchOut(state, time) {
       if (state.punches[key]){
-        state.punches[key] = {...state.punches[key], punchOut: time, notes};
+        state.punches[key] = { ...state.punches[key], punchOut: time };
       } else {
         alert('You must punch in first!');
       }

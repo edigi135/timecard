@@ -1,22 +1,21 @@
 <template>
-	<md-card>
-		<div id="time-display">
-			<p class="date">{{ date }}</p>
-			<template v-if="!time">
-				<md-spinner md-indeterminate></md-spinner>
-			</template>
-			<p
-				v-else
-				class="time"
-				style="cursor: pointer" 
-				@click="isMilitary = !isMilitary">
-				{{ time }}{{ ampm }}
-			</p>
-		</div>
-	</md-card>
+	<div id="time-display">
+		<p class="date">{{ date }}</p>
+		<template v-if="!time">
+			<md-spinner md-indeterminate></md-spinner>
+		</template>
+		<p
+			v-else
+			class="time"
+			style="cursor: pointer" 
+			@click="isMilitary = !isMilitary">
+			{{ time }}{{ ampm }}
+		</p>
+	</div>
 </template>
 
 <script>
+import { week, months } from '../util';
 export default {
   name: 'DateTime',
 	data () {
@@ -42,56 +41,28 @@ export default {
 	  			if (hour > 12) hour -= 12;
 	  		};
 	  		
-	  		// Left-pad numbers < 10 with 0
+	  		// Left-pad minutes and seconds < 10 with '0'
 	  		if (min < 10) min = '0' + min;
 	  		if (sec < 10) sec = '0' + sec;
 	  		
 	  		// Set this.time to result
 	  		self.time = `${ hour }:${ min }:${ sec }`
-  		}, 1000);
+  		}, 100);
   	},
   	amOrpm: function() {
-  		let self = this;
   		let theHour = new Date().getHours();
 
   		// Set this.data.ampm
-  		return self.ampm = theHour > 11 ? 'pm' : 'am';
+  		return this.ampm = theHour > 11 ? 'pm' : 'am';
   	},
   	getDate: function() {
-  		let self = this;
-
-  		let day = new Date().getDay();
-  		let month = new Date().getMonth();
-  		let date = new Date().getDate();
-  		let year = new Date().getFullYear();
-
-  		const week = [
-  			'Sunday',
-  			'Monday',
-  			'Tuesday',
-  			'Wednesday',
-  			'Thursday',
-  			'Friday',
-  			'Saturday'
-  		];
-
-  		const months = [
-  			'January',
-  			'February',
-  			'March',
-  			'April',
-  			'May',
-  			'June',
-  			'July',
-  			'August',
-  			'September',
-  			'October',
-  			'November',
-  			'December'
-  		];
+  		const day = new Date().getDay();
+  		const month = new Date().getMonth();
+  		const date = new Date().getDate();
+  		const year = new Date().getFullYear();
 
   		// Set this.date
-  		self.date = `${ week[day] }, ${ months[month] } ${ date } ${ year }`;
+  		this.date = `${ week[day] }, ${ months[month] } ${ date } ${ year }`;
   	}
   	
   },
@@ -105,7 +76,6 @@ export default {
 
 <style lang="css" scoped>
 	.date {
-
 		margin-top: 30px;
 	}
 	.time {
