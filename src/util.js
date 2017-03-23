@@ -1,5 +1,6 @@
 'use-strict';
 
+// Date string used as key in state tree
 export function getDate() {
 	return new Date().toString();
 }
@@ -9,6 +10,7 @@ export function formatDate(d) {
 	return dateString.toLowerCase();
 }
 
+// Time snapshot used as value in state/db
 export function getTime() {
 	let hour = new Date().getHours();
 	let min = new Date().getMinutes();
