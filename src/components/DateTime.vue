@@ -1,13 +1,20 @@
 <template>
-	<div>
-		<p>{{ date }}</p>
-		<p
-			class="time"
-			style="cursor: pointer" 
-			@click="isMilitary = !isMilitary">
-			{{ time }}{{ ampm }}
-		</p>
-	</div>
+	<md-card>
+		<div id="time-display">
+			<p>{{ date }}</p>
+			<template v-if="!time">
+				<md-spinner md-indeterminate></md-spinner>
+			</template>
+			
+			<p
+				v-else
+				class="time"
+				style="cursor: pointer" 
+				@click="isMilitary = !isMilitary">
+				{{ time }}{{ ampm }}
+			</p>
+		</div>
+	</md-card>
 </template>
 
 <script>
@@ -42,7 +49,7 @@ export default {
 	  		
 	  		// Set this.time to result
 	  		self.time = `${ hour }:${ min }:${ sec }`
-  		}, 100);
+  		}, 1000);
   	},
   	amOrpm: function() {
   		let self = this;
@@ -98,6 +105,9 @@ export default {
 </script>
 
 <style lang="css" scoped>
+	#time-display {
+		margin-bottom: 10px;
+	}
 	.time {
 		font-size: 3em;
 		margin-top: 0px;
