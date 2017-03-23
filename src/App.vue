@@ -5,19 +5,6 @@
 </template>
 
 <script>
-import Firebase from 'firebase'
-let config = {
-    apiKey: "AIzaSyC6Q9DdoJaxb16slv6HCYTaGIR4mYicKyM",
-    authDomain: "timecard-825d4.firebaseapp.com",
-    databaseURL: "https://timecard-825d4.firebaseio.com",
-    storageBucket: "timecard-825d4.appspot.com",
-    messagingSenderId: "238310997956"
-  };
-
-let app = Firebase.initializeApp(config);
-let db = app.database();
-let booksRef = db.ref('books');
-
 export default {
   name: 'app'
 }
