@@ -1,5 +1,5 @@
 <template>
-	<md-card class="card">
+	<div class="card">
 		<p class="date">{{ date }}</p>
 		<template v-if="!time">
 			<md-spinner md-indeterminate></md-spinner>
@@ -11,7 +11,7 @@
 			@click="isMilitary = !isMilitary">
 			{{ time }}{{ ampm }}
 		</h1>
-	</md-card>
+	</div>
 </template>
 
 <script>
