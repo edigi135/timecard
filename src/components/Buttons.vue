@@ -1,9 +1,11 @@
 <template>
-	<div id="buttons">
-		<md-button class="md-primary" @click.native="punchIn">Punch In</md-button>
-		<md-button @click.native="breakOut">Break (Out)</md-button>
-		<md-button @click.native="breakIn">Break (In)</md-button>
-		<md-button class="md-primary" @click.native="punchOut">Punch Out</md-button>
+	<div id="buttons" class="pure-g">
+		<div class="pure-u-sm-1">
+			<md-button class="md-primary" @click.native="punchIn">Punch In</md-button>
+			<md-button @click.native="breakOut">Break (Out)</md-button>
+			<md-button @click.native="breakIn">Break (In)</md-button>
+			<md-button class="md-primary" @click.native="punchOut">Punch Out</md-button>
+		</div>
 
 		<md-snackbar :md-position="vertical + ' ' + horizontal" ref="snackbar" :md-duration="duration">
 	    <span style="text-align: center">{{ message }}</span>
@@ -68,7 +70,7 @@ export default {
 
 	button {
 		cursor: pointer;
-		width: 150px;
+		width: 140px;
 		height: 40px;
 	}
 

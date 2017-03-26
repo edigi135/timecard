@@ -1,7 +1,6 @@
 <template>
   <div id="main" class="pure-g">
     <div class="pure-u-1">
-      <DateTime></DateTime>
       <Buttons></Buttons>
     </div>
   </div>
@@ -14,7 +13,6 @@ import Buttons from './Buttons.vue';
 export default {
   name: 'Root',
   components: {
-    DateTime,
     Buttons
   }
 }

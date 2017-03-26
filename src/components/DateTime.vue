@@ -1,17 +1,17 @@
 <template>
-	<div id="time-display">
+	<md-card class="card">
 		<p class="date">{{ date }}</p>
 		<template v-if="!time">
 			<md-spinner md-indeterminate></md-spinner>
 		</template>
-		<p
+		<h1
 			v-else
 			class="time"
 			style="cursor: pointer" 
 			@click="isMilitary = !isMilitary">
 			{{ time }}{{ ampm }}
-		</p>
-	</div>
+		</h1>
+	</md-card>
 </template>
 
 <script>
@@ -63,8 +63,7 @@ export default {
 
   		// Set this.date
   		this.date = `${ week[day] }, ${ months[month] } ${ date } ${ year }`;
-  	}
-  	
+  	}	
   },
   created() {
   	this.getDate;
@@ -75,15 +74,11 @@ export default {
 </script>
 
 <style lang="css" scoped>
-	#time-display {
-		width: 100%;
-	}
-	.date {
-		margin-top: 30px;
+	.card {
+		display: inline-block;
+		padding: 20px 60px;
 	}
 	.time {
-		font-size: 4em;
-		height: 40px;
 		display: inline-block;
 	}
 </style>
